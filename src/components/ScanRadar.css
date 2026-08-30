@@ -73,7 +73,6 @@
 
 .radar__blip {
   position: absolute;
-  inset: 0;
   width: 7px;
   height: 7px;
   border-radius: 50%;
