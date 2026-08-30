@@ -1,14 +1,18 @@
 # WaveScan
 
-Mobile-first Wi‑Fi scanner PWA. Tap **Scan Wi‑Fi** to sweep for nearby networks, inspect signal strength, band, channel, and security.
+Mobile-first scanner PWA with two modes:
+
+- **Wi‑Fi** — nearby networks, signal, band, channel, security
+- **Devices** — LAN hosts on your subnet (IP, MAC, vendor, type)
 
 ## What works where
 
 | Environment | Behavior |
 |---|---|
-| Browser / PWA preview | Demo scan with realistic SSIDs (browsers cannot list nearby Wi‑Fi) |
-| Android via Capacitor + Wi‑Fi plugin | Live radio scan (location permission required) |
+| Browser / PWA preview | Demo Wi‑Fi + LAN device scans (browsers cannot ARP-scan or list SSIDs) |
+| Android via Capacitor + plugins | Live radio / LAN scans (permissions required) |
 | Current link strip | Uses the Network Information API when the browser exposes it |
+| Device “this device” IP | Best-effort via WebRTC ICE when available |
 
 ## Develop
 
