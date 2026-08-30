@@ -9,7 +9,7 @@ import type { ScanMode, WifiNetwork } from './types/wifi'
 import './App.css'
 
 function formatTime(ts: number | null): string {
-  if (!ts) return '\u2014'
+  if (!ts) return '-'
   return new Intl.DateTimeFormat(undefined, {
     hour: 'numeric',
     minute: '2-digit',
@@ -60,13 +60,13 @@ export default function App() {
 
       <header className="top">
         <p className="brand">WaveScan</p>
-        <p className="tagline">Mobile Wi\u2011Fi airwaves at a glance</p>
+        <p className="tagline">Mobile Wi-Fi airwaves at a glance</p>
       </header>
 
       <main className="main">
         <section className="stage" aria-labelledby="scan-heading">
           <h1 id="scan-heading" className="visually-hidden">
-            Scan nearby Wi\u2011Fi
+            Scan nearby Wi-Fi
           </h1>
           <ScanRadar scanning={busy} />
           <button
@@ -76,13 +76,13 @@ export default function App() {
             disabled={busy}
             aria-busy={busy}
           >
-            {busy ? 'Scanning\u2026' : 'Scan Wi\u2011Fi'}
+            {busy ? 'Scanning...' : 'Scan Wi-Fi'}
           </button>
           <p className="stage__hint">
             {mode === 'demo' && 'Demo mode'}
             {mode === 'native' && 'Live device scan'}
             {mode === 'idle' && 'Ready'}
-            <span aria-hidden="true"> \u00b7 </span>
+            <span aria-hidden="true"> - </span>
             Last sweep {formatTime(scannedAt)}
           </p>
         </section>
@@ -94,12 +94,12 @@ export default function App() {
           </div>
           <div>
             <span className="link-status__label">Speed class</span>
-            <strong>{connection.effectiveType ?? '\u2014'}</strong>
+            <strong>{connection.effectiveType ?? '-'}</strong>
           </div>
           <div>
             <span className="link-status__label">Downlink</span>
             <strong>
-              {connection.downlink != null ? `${connection.downlink} Mb/s` : '\u2014'}
+              {connection.downlink != null ? `${connection.downlink} Mb/s` : '-'}
             </strong>
           </div>
         </section>
@@ -126,7 +126,7 @@ export default function App() {
       <footer className="foot">
         <p>
           Browser preview uses demo SSIDs. For real radio scans on Android,
-          build with Capacitor and a Wi\u2011Fi plugin (location permission required).
+          build with Capacitor and a Wi-Fi plugin (location permission required).
         </p>
       </footer>
     </div>
